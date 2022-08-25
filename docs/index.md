@@ -8,7 +8,8 @@ In this markdown document, I will explain the basics of how to display custom er
 ## Error Handling
 
 When user input is required as part of running a script, this opens the door for user error. Any user can, and most likely will, introduce errors while running a program. As we know from developing code, when you make an error in Python, you will see a system generated error message in red text. But, these messages are sometimes too technical or not informative enough for a user. 
-[insert pic]
+![Figure 1](https://github.com/meshapiro/IntroToProg-Python-Mod07/blob/main/docs/error_message.png "Figure 1")
+
 
 We can instead add a "try-except" block to our code, which will allow the program to capture errors, and display more informative error message. 
 
@@ -55,7 +56,7 @@ except Exception as e:
     print(e, e.__doc__, type(e), sep='\n')
 ```
 I tried running this but, when asked for my input for the first value, I entered "h"
-[insert image]
+![Figure 2](https://github.com/meshapiro/IntroToProg-Python-Mod07/blob/main/docs/ValueError.png "Figure 2")
 Since I printed type(e), I now know that this incorrect entry caused a ValueError type of exception. So, now I can add a message for this specific case:
 ```
 except ValueError as e:
