@@ -76,4 +76,58 @@ Pickling is the term used for working with binary files in Python. Pickling = se
 
 I also really enjoyed the example code I found on this website, because it helped me do one thing I was stumped about after watching the module video - it allowed me to print *every row* from a pickled object, instead of just the first row, that you get from using just print(pickle.load(data))
 
+It did require me to make a database, but it didn't seem much different than a dictionary -- it seems just like a set of dictionaries where the dictionaries have names? So conceptually it made sense to me and I was able to play around with it. I made a database called "Household" with all the human members of my household plus some identifying details, pickled that, and then printed all of it using a loop. 
+
+```
+#--------------------------------------------------------------------------#
+# Title: Listing X
+# Description: Pickling Example
+# ChangeLog: (Who, When, What)
+# MShapiro, 8/25/22, Modified a script taken from
+#   https://www.geeksforgeeks.org/understanding-python-pickling-example/
+#--------------------------------------------------------------------------#
+
+import pickle
+
+def storeData():
+    # initializing data to be stored in db
+    Meredith = {'id': 1, 'name': 'Meredith Shapiro','age': 36, 'sex': 'F'}
+    Jeremy = {'id': 2 , 'name': 'Jeremy Shapiro', 'age': 42, 'sex': 'M'}
+    Edie = {'id': 3, 'name': 'Edie Shapiro', 'age': 8, 'sex': 'F'}
+    Calvin = {'id': 4, 'name': 'Calvin Shapiro', 'age': 5, 'sex': 'M'}
+
+    # database
+    household = {}
+    household['M'] = Meredith
+    household['J'] = Jeremy
+    household['E'] = Edie
+    household['C'] = Calvin
+
+    # Its important to use binary mode
+    dbfile = open('examplePickle', 'wb')
+
+    # source, destination
+    pickle.dump(household, dbfile)
+    dbfile.close()
+
+def loadData():
+    # for reading also binary mode is important
+    dbfile = open('examplePickle', 'rb')
+    db = pickle.load(dbfile)
+    for keys in db:
+        print(keys, '=>', db[keys])
+    dbfile.close()
+
+storeData()
+loadData()
+```
+The key things to remember are that if you are trying to pickle to a file, the modes are all suffixed with b (for binary), so "rb" instead of "r" for read, "ab" for append, and "wb" for write. And all examples I looked at used the key functions of pickle.dump() for turning info into a pickle and dumping into a file, and pickle.load() for reading from a pickle. 
+
+Here is the output from Listing X:
+[insert pic]
+
+### Exceptions while pickling 
+
+I added my pickling code in to my homework file with the error-handling code. I then tried to break the pickling process, which was pretty easy by forgetting to add the b to the file commands. I generated a few additional exceptions and added comments for them as well (TypeError, UnicodeDecodeError, and a special pickle error, pickle.UnpicklingError). 
+
 ## Summary
