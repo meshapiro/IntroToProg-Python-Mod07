@@ -1,5 +1,7 @@
 # Error Handling and Pickling
 *MShapiro, 8/25/22*
+*Assignment07*
+*https://github.com/meshapiro/IntroToProg-Python-Mod07*
 
 ## Introduction
 
