@@ -71,6 +71,9 @@ You can also look at Python's list of built in exceptions to try to anticipate w
 
 ## Pickling
 
+Pickling is the term used for working with binary files in Python. Pickling = serialization and unpickling = un-serialization. I had wondered why they were called "pickles" and found out that the name is mostly referring to preservation and storage. Much like cucumbers are preserved for long term storage when turned into pickles, so will the data be easier preserved if you pickle it. I found a helpful explanation of pickling on this website: https://www.geeksforgeeks.org/understanding-python-pickling-example/ [directs to an outside url] The author explained what makes pickling useful:
+> Any object in Python can be pickled so that it can be saved on disk. What pickle does is that it “serializes” the object first before writing it to file. Pickling is a way to convert a python object (list, dict, etc.) into a character stream. The idea is that this character stream contains all the information necessary to reconstruct the object in another python script.
 
+I also really enjoyed the example code I found on this website, because it helped me do one thing I was stumped about after watching the module video - it allowed me to print *every row* from a pickled object, instead of just the first row, that you get from using just print(pickle.load(data))
 
 ## Summary
