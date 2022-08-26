@@ -177,6 +177,44 @@ In Figure 3 you can see that I successfully printed all the dictionaries from th
 
 I added my pickling code in to my homework file with the error-handling code. I then tried to break the pickling process, which was pretty easy by forgetting to add the b to the file commands. I generated a few additional exceptions and added comments for them as well (TypeError, UnicodeDecodeError, and a special pickle error, pickle.UnpicklingError). 
 
+## Running the Script
+
+First, here is what it looks like when I run the script correctly in Pycharm:
+
+![Figure 4](https://github.com/meshapiro/IntroToProg-Python-Mod07/blob/main/docs/Successful%20Run%20of%20Script%20in%20Pycharm.png "Figure 4")
+**Figure 4. Output from running script in Pycharm**
+
+As you see in Figure 4, I can run the script and it performs my function that takes two user input values and divides them, then prints a message about the quotient. Next it creates a binary file and reads from it. There are some steps I didn't print messages for (saving the numbers and quotient to a text file, the creation of the pickle) because I didn't feel this was essential. 
+
+I can see that I did create a text file with the twoVals output, and, more importantly, the binary file called examplePickle:
+
+![Figure 5](https://github.com/meshapiro/IntroToProg-Python-Mod07/blob/main/docs/File%20contents%20-%20docs%20created.png "Figure 5")
+**Figure 5. Contents of folder, showing that files were created while running script**
+
+Let's open the binary file we created, as seen in Figure 5. 
+
+![Figure 6](https://github.com/meshapiro/IntroToProg-Python-Mod07/blob/main/docs/PickleContents.png "Figure 6")
+**Figure 6. examplePickle file opened in TextEditor**
+
+As you see in Figure 6, a binary file isn't really easy to read by a human. I'm so glad we can display the contents using pickle.load()!
+
+Now, what happens if I forget the "b" in the statement 
+>dbfile = open('examplePickle', 'wb')
+
+I took off the b, as if I was trying to just write to a regular file. Then I tried to use pickle.dump() to the text file. Here is the error message I get:
+
+![Figure 7](https://github.com/meshapiro/IntroToProg-Python-Mod07/blob/main/docs/Running%20in%20Pycharm%20with%20type%20error.png "Figure 7")
+**Figure 7. Error from trying to pickle.dump() to a text file**
+
+In Figure 7, you see I created a custom message for this type of error (TypeError). This message may seem to generic - why not say something pickle specific, like "you need to use 'wb' to write to a binary file when pickling!"? I intially did have a more specific message like that, but in the course of testing my program and trying to create errors, I found that any kind of data type mismatch can create this error, so my specific message became *more* confusing! So, I tried to generalize it somewhat to make sense for multiple scenarios that could cause a TypeError. 
+
+Finally, I can run the script in Terminal. Here is output from me running it, first with an error and then correctly:
+
+![Figure 8](https://github.com/meshapiro/IntroToProg-Python-Mod07/blob/main/docs/Running%20in%20Terminal%20wrong%20and%20right.png "Figure 8")
+**Figure 8. Output from running script in Terminal**
+
+As you see in Figure 8, I initially tried to enter a string for my second value, which gave me one of my specific error messages. 
+
 ## Summary
 
 In this document, you can see how we can work with Python's built in exception class to get info about what type of error has been created, and then use that info to craft meaningful messages for a user. I really enjoyed trying to intuit user behavior, and seeing what happened when I tried to break my program. We also learned how to "pickle" data into binary files for storage/preservation purposes. 
