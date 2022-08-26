@@ -12,6 +12,7 @@ In this markdown document, I will explain the basics of how to display custom er
 ## Error Handling
 
 When user input is required as part of running a script, this opens the door for user error. Any user can, and most likely will, introduce errors while running a program. As we know from developing code, when you make an error in Python, you will see a system generated error message in red text. But, these messages are sometimes too technical or not informative enough for a user. 
+
 ![Figure 1](https://github.com/meshapiro/IntroToProg-Python-Mod07/blob/main/docs/error_message.png "Figure 1")
 **Figure 1. System-generated error message from running a function with incompatible data**
 
